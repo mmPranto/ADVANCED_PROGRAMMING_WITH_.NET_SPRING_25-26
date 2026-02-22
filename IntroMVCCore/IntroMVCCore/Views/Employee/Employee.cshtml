@@ -1,0 +1,39 @@
+﻿@model List<Employee>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 0;
+        }
+        @foreach(var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@item.Name</td>
+                @if (item.Salary > 50000)
+                {
+                    <td class="bg-success">@item.Salary</td>
+                }
+                else
+                {
+                    <td>@item.Salary</td>
+                }
+                @if (item.Designation == "Manager")
+                {
+                    <td class="fw-bold">@item.Designation</td>
+                }
+                else
+                {
+                    <td>@item.Designation</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<h2>Total employee <span>@i</span></h2>
